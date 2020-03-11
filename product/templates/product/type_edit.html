@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block content %}
+
+
+    <div class="container">
+  
+        <h1>แก้ไขประเภท</h1><br>
+
+         <table class="table  table-hover table-secondary">
+          <thead >
+     <tr>   <th>
+         <h2>ID : {{type2.id}}</h2>
+
+        <form method="POST" action="{% url 'type_edit' id=type2.id %}">
+         {% csrf_token %}
+               
+       
+            {% if msg %}<h3 class="text-success">{{msg}}</h3>{% endif %}
+
+
+                <div class="form-group col">
+                    <label for="name">ชื่อประเภท :</label>
+                    <input type="text" class="form-control" name="name" id="name" value="{{type2.name}}" required>
+                </div>
+
+
+
+                <div class="form-group col">
+                    <label for="description">รายละเอียด :</label>
+                    <input type="text" class="form-control" name="description" id="description" value="{{type2.description}}" required>
+                </div>
+      
+
+                <button type="submit" class="btn btn-secondary col-6">Submit</button>
+        </form></th></tr>   </thead >   </table >
+        
+
+</div>
+<br><br><br><br><br><br><br><br><br>
+{% endblock %}

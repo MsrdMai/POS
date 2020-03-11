@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+ <h1>แก้ไขประเภทสินค้า</h1>
+<div class="container">
+ <div class="row">   
+
+               
+        <form method='POST' class="form-inline col-sm"  action="{% url 'type_add' %}" >{% csrf_token %}
+                        
+            <table class="table table-hover table-danger">
+            <thead >
+                <tr>             
+                    <th>ชื่อประเภท</th>
+                    <th>รายละเอียดของประเภท </th>
+                    <th>โปรดยืนยัน </th>
+                     <th>สถานะ</th>
+                    </tr>
+                    
+                    <tr> 
+
+                        <td><div class="form-group  col-sm"> 
+                        <input type="text" class="form-control" 
+                               name="name" placeholder="AddType" id="name"   required> </div></td>
+
+                        <td><div class="form-group col-sm">
+                        <input type="text" class="form-control " 
+                               name="description" placeholder="Add description" id="description" ></div></td>
+                     <td> <input type="submit"  class="btn btn-light col-sm" value="OK">
+                     </td>
+                     <td>{% if msg %}<p class="text-success">{{msg}}</p>{% endif %}</td> </tr>
+       
+        
+</thead>
+   </table >   </form>
+</div>   
+</div>   
+
+ <div class="container">
+         {% if txt %}<div class="alert alert-primary alert-dismissible fade show" role="alert" >{{txt}}  </div>{%endif%}
+ <div class="row">   
+               
+    
+        <table class="table  table-hover table-warning">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Edit</th>
+                     <th scope="col">Remove</th>
+                    </tr>
+                            
+                <tr>
+                
+                <tr>
+              
+                 {% for t in typess  %}
+                    <td>{{ t.id }} </td>
+                    <td>{{ t.name }}</td>
+                    <td>{{ t.description }}</td>
+                    <td><a href="{% url 'type_edit' id=t.id %}">
+                            <div class="btn btn-warning" id="{{t.id}}">Edit</div></td>
+                     <td> <a href="{% url 'type_delete' id=t.id %}">
+                            <div class="btn btn-primary" id="{{t.id}}">Remove</div></td> 
+                
+                </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+
+</div>
+</div>
+<br><br><br><br><br><br><br><br><br>
+{% endblock %}

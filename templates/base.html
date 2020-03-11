@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>POS Management</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css'%}">
+    <link href="https://fonts.googleapis.com/css?family=Itim&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Mukta&display=swap" rel="stylesheet">
+
+    <style>
+
+  
+    header[role="banner"] {
+        #logo-main {
+            display: block;
+            margin: 20px auto;
+        }
+        }
+
+        #navbar-primary.navbar-default {
+        background: transparent;
+     
+        border: none;
+        .navbar-nav { 
+            width: 100%;
+            text-align: center;
+            > li {
+            display: inline-block;
+            float: none;
+            > a {
+                padding-left: 30px;
+                padding-right: 30px;
+                }
+            }
+        }
+        }
+    label{   /*  background: linear-gradient(to right, #fdbb2d 0%, #22c1c3 100%);
+	    -webkit-background-clip: text;
+    	-webkit-text-fill-color: transparent; */
+      text-shadow: 10px 100px 100px black, 100 0 100px white, 0 0 50px white;
+
+
+    }
+   h1{
+     	text-transform: uppercase;
+       color :#483D8B;
+       background: #ffff80;
+        border:5px dashed #E6E6FA;
+
+
+    }
+
+        form {
+
+            padding-right: 30px;
+
+        }
+        /* Sticky footer styles
+        -------------------------------------------------- */
+        html {
+        position: relative;
+        min-height: 100%;
+        }
+        body {
+        /* Margin bottom by footer height */
+        margin-bottom: 60px;
+        font-family: 'Itim', 'Mukta' ;
+        text-align:center;
+       
+        background : url('{% static "img/bg-23.jpg" %}') no-repeat;
+    
+        background-size : cover; 
+       
+
+        }
+        .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        /* Set the fixed height of the footer here */
+        height: 15%;
+        line-height: 30px; /* Vertically center the text there */
+        background:#000080;
+        color:white;
+        text-align: center;
+        }
+
+      nav{
+        background:#000080;
+        color:black;
+
+      }
+    </style>
+
+</head>
+<body>
+   
+    <nav class="navbar navbar-expand-lg " >
+  <a class="navbar-brand" href=""><img src="{% static "invoice.png" %}" alt="My image" id='pic' width='60px'></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link text-light" href="{% url 'index' %}">หน้าหลัก <span class="sr-only">(current)</span></a>
+      </li>
+      {% if user.is_authenticated %}<li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'ad่justlist' %}">จัดการสินค้า</a>
+      </li>{% endif%}
+      
+      </li>
+      {% if user.is_authenticated %}<li class="nav-item">
+        <a class="nav-link text-light" href="{% url 'dashboard' %}">ยอดขาย</a>
+      </li>{% endif%}
+      
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+     
+    {% if user.is_authenticated %}
+       <a href="{% url 'logout' %}">
+                            <div class="btn btn-light  my-2 my-sm-0">Logout</div>
+                        </a>{% endif%}
+                        
+
+  </div>
+</nav>
+    <br>
+    <div class="container">
+    
+        {% block content %}
+        {% endblock %}
+    </div>
+
+
+    <footer class="footer">
+      <div class="container">
+        
+        {% block footer %}
+       <span> <br>
+        <p>POSTED BY : SIRILADA  SONSOMBOON <br>
+        Contact information  : 61070244@it.ac.th</p></span>
+              
+        {% endblock %}
+      
+      </div>
+    </footer>
+
+</body>
+</html>
