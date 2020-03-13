@@ -1,11 +1,11 @@
 ﻿# POS ( Point of sale)
 
-##Framework : Django
+## Framework : Django
 [![1-4-QDbb-e-O98w-IB32-CNNu-Wjw.png](https://i.postimg.cc/8P8jMDdm/1-4-QDbb-e-O98w-IB32-CNNu-Wjw.png)](https://postimg.cc/3WB8Qsck)
 
 
 
-ความสามารถของระบบ:
+## ความสามารถของระบบ:
 1. หน้า Log In
 2. หน้าแรก
 - สําหรับบันทึกข้อมูลการขาย
@@ -36,11 +36,11 @@ Database :
 
 
 
-Develop : Sirilada Sonsomboon
+#### Develop : Sirilada Sonsomboon
 
-Note : setting Django
-.\env\Scripts\activate
-python manage.py createsuperuser
+## Note : setting Django
+- .\env\Scripts\activate
+- python manage.py createsuperuser
 python -m venv env
 python -m pip install django
 django-admin startproject (myweb)(สร้างชื่อโฟเดอร์)
