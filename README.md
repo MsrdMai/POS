@@ -37,3 +37,18 @@ Database :
 
 
 Develop : Sirilada Sonsomboon
+
+Note : setting Django
+.\env\Scripts\activate
+python manage.py createsuperuser
+python -m venv env
+python -m pip install django
+django-admin startproject (myweb)(สร้างชื่อโฟเดอร์)
+python manage.py runserver 127.0.0.1:8080
+python manage.py startapp (authen) 
+python -m pip install --upgrade pip
+python manage.py makemigrations
+python manage.py migrate
+python manage.py sqlmigrate management 0001
+ python manage.py shell
+
