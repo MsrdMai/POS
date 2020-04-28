@@ -1,0 +1,58 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+
+        <h1>เพิ่มสินค้าใหม่</h1>
+
+<div class="container">
+<div class="row">   
+        <form  class="form-inline "  action="{% url 'product_add' %}" method="POST">{% csrf_token %}
+        
+          <table class="table  table-hover table-info">
+          <thead >
+     <tr>              
+                    <th>ชื่อสินค้า</th> 
+                    <th>ประเภทสินค้า</th> 
+                    <th> ราคา</th> 
+                    <th>รายละเอียด</th> 
+                    <th>โปรดยืนยัน</th> 
+                    </tr><tr> 
+      
+        
+            <td><div class="form-group col-sm">
+                <input type="text" class="form-control" 
+                    name="proname" placeholder="Add Name" required>
+            </div></td>
+        
+          <td><div class="form-group col-sm">      
+                <select class="form-control " id="types_id" name="types_id" required> 
+                 {% comment %} <option value=''>---เลือกประเภท---</option> {% endcomment %}
+                        {% for ty in  typess %}
+                    <option value='{{ ty.id }}'>{{ ty.name }}</option>
+                      {% endfor %}
+                </select>
+            </div> </td>   
+
+
+                 <td><div class="form-group col-sm">
+                <input type="number" min='5'class="form-control " 
+                    name="proprice" placeholder="Add PRICE" required> 
+                </div></td>
+ 
+
+                 <td> <div class="form-group col-sm">
+                <input type="text" class="form-control " 
+                    name="prodescription" placeholder="Add description" required>
+                </div>  </td>  
+                 
+                
+                  <td> <input type="submit"  class="btn btn-light col-sm" value="OK"></td> </tr> 
+</thead >
+   </table >  </form></div></div>
+     {% if msg %}<div class="alert alert-success alert-dismissible fade show" role="alert" >{{msg}} </div>{%endif%}
+
+<br><br><br><br><br><br><br><br><br>
+{% endblock %}

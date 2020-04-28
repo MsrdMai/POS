@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>รายงานยอดขาย</h1>
+ <div class="container">
+
+
+        <table class="table table-light">
+            <thead>
+                <tr>
+                   <th><a href="{% url 'day_dashboard' %}">  <div class="btn btn-warning" >Day</div></td>
+                <th><a href="{% url 'week_dashboard' %}">  <div class="btn btn-warning" >Week</div></td>
+                <th><a href="{% url 'month_dashboard' %}">  <div class="btn btn-warning" >Month</div></td>
+                <th><a href="{% url 'year_dashboard' %}">  <div class="btn btn-warning" >Year</div></td>
+
+
+                </tr>
+            </thead>
+
+             <tbody> 
+               
+            <tr> 
+              <th>Order ID</th>
+              <th>Total</th>
+              <th></th>
+              <th>Time sale</th>
+              </tr>
+               {% for i in total_day %}
+                <tr>
+                    <td>{{ i.id }} </td>
+                    <td>{{ i.total_price }} </td>
+                    <td></td>
+                    <td>{{ i.date_time }}</td></tr>
+                    
+                  
+                {% endfor %} 
+
+              
+              <th>Profit :</th> <th>{{profit}}</th></tr>
+                    
+            </tbody>
+        </table>
+     </div>
+  </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
